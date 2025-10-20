@@ -2,11 +2,11 @@
 
 A modern, futuristic landing page for Linfield Labs - AI Agents & Automation services.
 
-## 🚀 Quick Deploy to GitHub Pages
+## 🚀 Deploy to GitHub Pages
 
-### Option 1: Deploy via GitHub Pages (Recommended)
-1. Create a new repository on GitHub (e.g., `linfield-labs-website`)
-2. Push this code to your repository:
+### Step-by-Step Deployment
+1. **Create a new repository on GitHub** (e.g., `linfield-labs-website`)
+2. **Push this code to your repository:**
    ```bash
    git init
    git add .
@@ -15,31 +15,26 @@ A modern, futuristic landing page for Linfield Labs - AI Agents & Automation ser
    git remote add origin https://github.com/YOUR_USERNAME/linfield-labs-website.git
    git push -u origin main
    ```
-3. Go to your repository Settings → Pages
-4. Select "Deploy from a branch" → "main" branch
-5. Your site will be live at: `https://YOUR_USERNAME.github.io/linfield-labs-website`
+3. **Enable GitHub Pages:**
+   - Go to your repository Settings → Pages
+   - Select "Deploy from a branch" → "main" branch
+   - Click Save
+4. **Your site will be live at:** `https://YOUR_USERNAME.github.io/linfield-labs-website`
 
-### Option 2: Deploy to Vercel
-1. Go to [vercel.com](https://vercel.com) and sign up/login
-2. Click "New Project"
-3. Drag and drop this entire folder to the deployment area
-4. Your site will be live in seconds!
-
-### Option 3: Deploy via Vercel CLI
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel --prod
-```
+### 🎯 Benefits of GitHub Pages
+- ✅ **Completely free** hosting
+- ✅ **Custom domain** support
+- ✅ **HTTPS** enabled by default
+- ✅ **Automatic deployments** on every push
+- ✅ **CDN** for fast global loading
+- ✅ **No build process** required for static sites
 
 ## 📁 Project Structure
 ```
 ├── index.html          # Main landing page
-├── logo.svg           # Company logo
-├── vercel.json        # Vercel configuration
-├── package.json       # Project metadata
+├── logo.svg           # Company logo (header)
+├── logo-hero.svg      # Company logo (hero section)
+├── .gitignore         # Git ignore rules
 └── README.md          # This file
 ```
 
