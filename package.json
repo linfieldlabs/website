@@ -1,0 +1,19 @@
+{
+  "name": "linfield-labs-website",
+  "version": "1.0.0",
+  "description": "Linfield Labs - AI Agents & Automation landing page",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build step required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "automation",
+    "linfield-labs"
+  ],
+  "author": "Linfield Labs",
+  "license": "MIT"
+}

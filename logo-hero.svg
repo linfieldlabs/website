@@ -1,0 +1,52 @@
+<svg width="84" height="84" viewBox="0 0 84 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the hexagon outline and bars -->
+    <linearGradient id="heroLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb86b"/>
+      <stop offset="50%" stop-color="#ffd89b"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    
+    <!-- Gradient for the dots -->
+    <radialGradient id="heroDotGradient1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#00d1ff"/>
+    </radialGradient>
+    
+    <radialGradient id="heroDotGradient2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb86b"/>
+      <stop offset="100%" stop-color="#ffd89b"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Hexagon outline -->
+  <path d="M42 4 L67 16 L67 50 L42 62 L17 50 L17 16 Z" 
+        stroke="url(#heroLogoGradient)" 
+        stroke-width="3" 
+        fill="none" 
+        stroke-linejoin="round"/>
+  
+  <!-- Vertical bars (audio equalizer style) -->
+  <g stroke="url(#heroLogoGradient)" stroke-width="2.5" stroke-linecap="round">
+    <!-- Left bars (shorter, blue-teal) -->
+    <line x1="25" y1="46" x2="25" y2="38"/>
+    <line x1="29" y1="46" x2="29" y2="33"/>
+    <line x1="33" y1="46" x2="33" y2="40"/>
+    
+    <!-- Center bars (medium height) -->
+    <line x1="37" y1="46" x2="37" y2="31"/>
+    <line x1="42" y1="46" x2="42" y2="25"/>
+    <line x1="47" y1="46" x2="47" y2="29"/>
+    
+    <!-- Right bars (taller, orange-yellow) -->
+    <line x1="51" y1="46" x2="51" y2="36"/>
+    <line x1="55" y1="46" x2="55" y2="27"/>
+    <line x1="59" y1="46" x2="59" y2="33"/>
+  </g>
+  
+  <!-- Bottom-center dot -->
+  <circle cx="42" cy="54" r="3" fill="url(#heroDotGradient1)"/>
+  
+  <!-- Top-right dot -->
+  <circle cx="59" cy="25" r="2.5" fill="url(#heroDotGradient2)"/>
+</svg>

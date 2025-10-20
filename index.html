@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linfield Labs — AI Agents & Automation</title>
+  <meta name="description" content="Linfield Labs builds intelligent AI apps, agents, and automation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060b12;
+      --bg-2: #0a1422;
+      --text: #e9f1ff;
+      --muted: #9fb3cc;
+      --glow-1: #00d1ff; /* cyan */
+      --glow-2: #6ee7ff; /* light-cyan */
+      --accent-1: #ffb86b; /* orange */
+      --accent-2: #5eead4; /* teal */
+      --card: #0f1a2b;
+      --ring: rgba(0, 209, 255, .45);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 800px at 10% 10%, #0c1b2f 0%, transparent 60%),
+                  radial-gradient(1200px 800px at 90% 20%, rgba(0, 209, 255, .08) 0%, transparent 60%),
+                  linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      overflow-x: hidden;
+    }
+
+    /* Utility */
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+    .center { display: grid; place-items: center; }
+    .grid { display: grid; gap: 1.25rem; }
+    .btn {
+      padding: 0.9rem 1.3rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .02em;
+      position: relative;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      box-shadow: 0 0 0px 0 var(--ring), inset 0 0 0 0 var(--ring);
+    }
+    .btn:hover {
+      border-color: var(--glow-2);
+      box-shadow: 0 0 24px 4px var(--ring), inset 0 0 12px 0 rgba(255,255,255,.04);
+      transform: translateY(-1px);
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: linear-gradient(180deg, rgba(6,11,18,.86) 0%, rgba(6,11,18,.35) 100%);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    header .bar { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
+    .brand { display:flex; align-items:center; gap:.8rem; text-decoration:none; color:var(--text); }
+    .brand img { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(0,209,255,.35)); }
+    .brand .name { font-family: "Space Grotesk", Inter, sans-serif; font-weight: 700; letter-spacing:.02em; }
+
+    /* Hero */
+    .hero { padding: 8rem 0 5rem; position: relative; }
+    .glow-orb { position:absolute; inset:auto auto 5% -10%; width: 60vmin; height:60vmin; filter: blur(60px); opacity:.28; background: radial-gradient(circle at 30% 30%, var(--glow-1), transparent 60%); pointer-events:none; }
+    .hero .title { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin: 0 0 1rem; text-shadow: 0 0 32px rgba(0, 209, 255, .15); }
+    .hero .kicker { color: var(--muted); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; font-size: .86rem; }
+    .hero p { color: #cfe2ff; font-size: clamp(1rem, 2.5vw, 1.25rem); max-width: 60ch; }
+    .hero .cta { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.25rem; }
+
+    /* Badge row */
+    .badges { margin-top: 2rem; display:flex; gap:1rem; flex-wrap: wrap; opacity:.9; }
+    .badge { padding:.5rem .8rem; border:1px solid rgba(255,255,255,.08); border-radius:999px; font-size:.82rem; color:#c9d8ee; background: rgba(255,255,255,.02); }
+
+    /* Cards */
+    .cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 2.5rem; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(255,255,255,.01) 100%); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 1.2rem; position: relative; overflow: hidden; }
+    .card::before { content:""; position:absolute; inset:-1px; background: conic-gradient(from 180deg, var(--accent-1), var(--glow-1), var(--accent-2), transparent 60%); filter: blur(30px); opacity:.18; }
+    .card h3 { margin: .2rem 0 .35rem; font-family: "Space Grotesk", Inter, sans-serif; letter-spacing:.01em; }
+    .card p { color:#c9d8ee; margin:0; }
+    .chip-row { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.9rem; }
+    .chip { font-size:.78rem; padding:.35rem .6rem; border-radius:999px; background: rgba(0,209,255,.08); border:1px solid rgba(0,209,255,.2); color:#cfeeff; }
+
+    /* Section headers */
+    section { padding: 4.5rem 0; }
+    .section-title { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(1.5rem, 3.5vw, 2.4rem); margin: 0 0 .6rem; }
+    .muted { color: var(--muted); }
+
+    /* Feature list */
+    .features { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 1.5rem; }
+    .feature { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 1rem; }
+    .feature strong { display:block; margin-bottom:.25rem; }
+
+    /* CTA */
+    .cta-block { text-align:center; padding: 3rem 1rem; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; background: radial-gradient(1200px 600px at 50% -20%, rgba(0,209,255,.25), transparent 60%), rgba(255,255,255,.02); box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), 0 20px 60px rgba(0,0,0,.35); }
+
+    /* Footer */
+    footer { padding: 3rem 0 4rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,.06); background: linear-gradient(180deg, rgba(10,20,34,.4) 0%, rgba(10,20,34,.12) 100%); }
+    footer a { color: var(--text); text-decoration: none; opacity: .9; }
+
+    /* Motion */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* Small tweaks */
+    .hero-logo { width: 84px; height: 84px; object-fit: contain; margin-bottom: .8rem; filter: drop-shadow(0 0 22px rgba(0,209,255,.35)); }
+    .divider { height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); margin: 1.5rem 0; }
+
+    @media (min-width: 900px) {
+      .hero .layout { display:grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items:center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container bar">
+      <a class="brand" href="#">
+        <!-- Replace src with your actual logo file path -->
+        <img src="logo.svg" alt="Linfield Labs logo" />
+        <span class="name">LINFIELD LABS</span>
+      </a>
+      <nav class="nav">
+        <a class="btn" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="glow-orb" aria-hidden="true"></div>
+      <div class="layout">
+        <div class="reveal">
+          <img class="hero-logo" src="logo-hero.svg" alt="Linfield Labs logo" />
+          <div class="kicker">AI Apps • Agents • Automation</div>
+          <h1 class="title">Building the future with intelligent AI apps.</h1>
+          <p>We design and deploy custom <strong>AI agents</strong> and <strong>AI automation</strong> that plan, reason, and execute across your stack — turning messy workflows into autonomous systems.</p>
+          <div class="cta">
+            <a href="#contact" class="btn">Schedule a Consultation</a>
+            <a href="#use-cases" class="btn" style="border-color:rgba(255,255,255,.14)">Explore Use Cases</a>
+          </div>
+          <div class="badges">
+            <span class="badge">Fast MVPs</span>
+            <span class="badge">Enterprise-ready</span>
+            <span class="badge">Security-first</span>
+            <span class="badge">Cloud-native</span>
+          </div>
+        </div>
+        <div class="reveal" style="justify-self:center;">
+          <!-- Decorative futuristic panel -->
+          <svg width="440" height="380" viewBox="0 0 440 380" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffb86b"/>
+                <stop offset="50%" stop-color="#00d1ff"/>
+                <stop offset="100%" stop-color="#5eead4"/>
+              </linearGradient>
+              <filter id="blur" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="14"/>
+              </filter>
+            </defs>
+            <rect x="20" y="20" width="400" height="340" rx="18" stroke="url(#g1)" stroke-opacity=".6" fill="rgba(255,255,255,.02)"/>
+            <g filter="url(#blur)">
+              <circle cx="110" cy="80" r="18" fill="#00d1ff" opacity=".5"/>
+              <circle cx="330" cy="300" r="14" fill="#ffb86b" opacity=".5"/>
+            </g>
+            <!-- Bars echoing the logo motif -->
+            <g transform="translate(95,80)" stroke="url(#g1)" stroke-width="6" stroke-linecap="round">
+              <line x1="0" y1="200" x2="0" y2="120"/>
+              <line x1="28" y1="200" x2="28" y2="90"/>
+              <line x1="56" y1="200" x2="56" y2="150"/>
+              <line x1="84" y1="200" x2="84" y2="70"/>
+              <line x1="112" y1="200" x2="112" y2="40"/>
+              <line x1="140" y1="200" x2="140" y2="110"/>
+              <line x1="168" y1="200" x2="168" y2="80"/>
+              <line x1="196" y1="200" x2="196" y2="130"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="container">
+      <h2 class="section-title reveal">Use cases we deliver</h2>
+      <p class="muted reveal">Start focused. Scale fast. Systems that compound.</p>
+      <div class="grid cards">
+        <article class="card reveal">
+          <h3>AI Agents</h3>
+          <p>Autonomous agents that think, plan, and act — orchestrating tools, APIs, and data to achieve goals with minimal oversight.</p>
+          <div class="chip-row">
+            <span class="chip">Customer Support Copilots</span>
+            <span class="chip">Sales/BD Agents</span>
+            <span class="chip">Research & Insights</span>
+            <span class="chip">Ops Runbooks</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h3>AI Automation</h3>
+          <p>Fully automated workflows that watch events, enrich data, and execute — from inbox to database to dashboard.</p>
+          <div class="chip-row">
+            <span class="chip">Back-office RPA</span>
+            <span class="chip">Data Pipelines</span>
+            <span class="chip">Lead Routing</span>
+            <span class="chip">Document Processing</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h3>Custom AI Apps</h3>
+          <p>Secure, human-centered interfaces: chat, dashboards, and internal tools tailored to your workflows and stack.</p>
+          <div class="chip-row">
+            <span class="chip">Multi-tenant SaaS</span>
+            <span class="chip">Embeddings & RAG</span>
+            <span class="chip">Fine-tuned Models</span>
+            <span class="chip">LLM Evaluation</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2 class="section-title reveal">Why Linfield Labs</h2>
+      <div class="grid features">
+        <div class="feature reveal"><strong>Tailored Systems</strong><span class="muted">We design around your data, tools, and KPIs — not generic demos.</span></div>
+        <div class="feature reveal"><strong>Security First</strong><span class="muted">SSO, audit logs, and least-privilege access baked in.</span></div>
+        <div class="feature reveal"><strong>Rapid Delivery</strong><span class="muted">From idea to pilot in weeks, not quarters.</span></div>
+        <div class="feature reveal"><strong>Scalable Cloud</strong><span class="muted">Modern infra patterns to grow from MVP to enterprise.</span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="cta-block reveal">
+        <h2 class="section-title" style="margin-bottom:.25rem">Ready to build the future?</h2>
+        <p class="muted" style="margin-top:0">Tell us about your goals — we'll propose a fast path to value.</p>
+        <div class="divider"></div>
+        <a class="btn" href="mailto:hello@linfieldlabs.com">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:1rem; align-items:center; flex-wrap:wrap;">
+        <span>© <span id="year"></span> Linfield Labs</span>
+        <span style="opacity:.85">AI Agents • AI Automation • Custom Apps</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold:.12 });
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
