@@ -1,0 +1,50 @@
+/* Simple AI Animations - Right Side Only */
+@keyframes simple-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-20px); opacity: 0; }
+}
+
+.ai-processing {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ai-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--glow-1);
+  border-radius: 50%;
+  animation: float-up 3s infinite ease-in-out;
+}
+
+.ai-status {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 209, 255, 0.1);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  color: var(--glow-1);
+  font-family: 'Space Grotesk', monospace;
+  animation: simple-pulse 3s infinite ease-in-out;
+}
+
+.ai-status::before {
+  content: "●";
+  color: #00ff00;
+  margin-right: 6px;
+}

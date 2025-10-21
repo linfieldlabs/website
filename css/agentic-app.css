@@ -1,0 +1,202 @@
+/* Agentic App Dashboard */
+.agentic-app {
+  width: 440px;
+  height: 380px;
+  background: linear-gradient(135deg, rgba(15, 26, 43, 0.9) 0%, rgba(10, 20, 34, 0.95) 100%);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  border-radius: 18px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.agentic-app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 209, 255, 0.1), rgba(255, 184, 107, 0.1), rgba(94, 234, 212, 0.1));
+  border-radius: 18px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.app-title {
+  font-family: "Space Grotesk", monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.app-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  animation: simple-pulse 2s infinite;
+}
+
+.agent-cards {
+  position: relative;
+  height: 200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.agent-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.8s ease-in-out;
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.agent-card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.agent-card.prev {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.agent-card:hover {
+  border-color: rgba(0, 209, 255, 0.4);
+  background: rgba(0, 209, 255, 0.05);
+}
+
+.agent-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+  background: var(--glow-1);
+  transform: scale(1.2);
+}
+
+.agent-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.agent-icon {
+  font-size: 1.2rem;
+}
+
+.agent-name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.agent-status {
+  margin-left: auto;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0, 255, 0, 0.1);
+  color: #00ff00;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.agent-activity {
+  margin-bottom: 8px;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+}
+
+.activity-time {
+  color: var(--muted);
+}
+
+.activity-text {
+  color: #cfe2ff;
+}
+
+.agent-metrics {
+  display: flex;
+  gap: 16px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-value {
+  display: block;
+  font-weight: 700;
+  color: var(--glow-1);
+  font-size: 0.9rem;
+}
+
+.metric-label {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.app-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.system-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.stat {
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}

@@ -1,0 +1,8 @@
+/* Cards */
+.cards { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 2.5rem; }
+.card { background: linear-gradient(180deg, rgba(255,255,255,.03) 0%, rgba(255,255,255,.01) 100%); border: 1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 1.2rem; position: relative; overflow: hidden; }
+.card::before { content:""; position:absolute; inset:-1px; background: conic-gradient(from 180deg, var(--accent-1), var(--glow-1), var(--accent-2), transparent 60%); filter: blur(30px); opacity:.18; }
+.card h3 { margin: .2rem 0 .35rem; font-family: "Space Grotesk", Inter, sans-serif; letter-spacing:.01em; }
+.card p { color:#c9d8ee; margin:0; }
+.chip-row { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.9rem; }
+.chip { font-size:.78rem; padding:.35rem .6rem; border-radius:999px; background: rgba(0,209,255,.08); border:1px solid rgba(0,209,255,.2); color:#cfeeff; }

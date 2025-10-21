@@ -1,0 +1,102 @@
+/* Nordic Contact Styling */
+.contact-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.company-details {
+  text-align: left;
+}
+
+.company-name {
+  font-family: "Space Grotesk", monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.address {
+  margin-bottom: 1rem;
+}
+
+.address-line {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-link {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.contact-link:hover {
+  color: var(--glow-1);
+}
+
+.location-badge {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.1), rgba(94, 234, 212, 0.1));
+  border: 1px solid rgba(0, 209, 255, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+.location-text {
+  text-align: left;
+}
+
+.city {
+  font-family: "Space Grotesk", monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.country {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .company-details {
+    text-align: center;
+  }
+  
+  .contact-methods {
+    align-items: center;
+  }
+  
+  .location-badge {
+    justify-content: center;
+  }
+}

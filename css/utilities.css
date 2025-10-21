@@ -1,0 +1,22 @@
+/* Utility */
+.container { width: min(1100px, 92%); margin-inline: auto; }
+.center { display: grid; place-items: center; }
+.grid { display: grid; gap: 1.25rem; }
+.btn {
+  padding: 0.9rem 1.3rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 14px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .02em;
+  position: relative;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 0 0px 0 var(--ring), inset 0 0 0 0 var(--ring);
+}
+.btn:hover {
+  border-color: var(--glow-2);
+  box-shadow: 0 0 24px 4px var(--ring), inset 0 0 12px 0 rgba(255,255,255,.04);
+  transform: translateY(-1px);
+}

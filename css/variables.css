@@ -1,0 +1,12 @@
+:root {
+  --bg: #060b12;
+  --bg-2: #0a1422;
+  --text: #e9f1ff;
+  --muted: #9fb3cc;
+  --glow-1: #00d1ff; /* cyan */
+  --glow-2: #6ee7ff; /* light-cyan */
+  --accent-1: #ffb86b; /* orange */
+  --accent-2: #5eead4; /* teal */
+  --card: #0f1a2b;
+  --ring: rgba(0, 209, 255, .45);
+}

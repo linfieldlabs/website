@@ -1,0 +1,10 @@
+header {
+  position: sticky; top: 0; z-index: 30;
+  backdrop-filter: saturate(140%) blur(10px);
+  background: linear-gradient(180deg, rgba(6,11,18,.86) 0%, rgba(6,11,18,.35) 100%);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+header .bar { display: flex; align-items: center; justify-content: space-between; padding: .9rem 0; }
+.brand { display:flex; align-items:center; gap:.8rem; text-decoration:none; color:var(--text); }
+.brand img { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(0,209,255,.35)); }
+.brand .name { font-family: "Space Grotesk", Inter, sans-serif; font-weight: 700; letter-spacing:.02em; }

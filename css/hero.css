@@ -1,0 +1,41 @@
+/* Acceleration Animation for "accelerate" - Simplified version */
+@keyframes accelerate {
+  0% {
+    transform: scale(1);
+    color: var(--text);
+  }
+  50% {
+    transform: scale(1.1);
+    color: var(--glow-1);
+  }
+  100% {
+    transform: scale(1.2);
+    color: var(--accent-1);
+  }
+}
+
+.accelerate-word {
+  display: inline-block;
+  animation: accelerate 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Hero */
+.hero { padding: 8rem 0 5rem; position: relative; }
+.glow-orb { position:absolute; inset:auto auto 5% -10%; width: 60vmin; height:60vmin; filter: blur(60px); opacity:.28; background: radial-gradient(circle at 30% 30%, var(--glow-1), transparent 60%); pointer-events:none; }
+.hero .title { font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.05; margin: 0 0 1rem; text-shadow: 0 0 32px rgba(0, 209, 255, .15); }
+.hero .kicker { color: var(--muted); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; font-size: .86rem; }
+.hero p { color: #cfe2ff; font-size: clamp(1rem, 2.5vw, 1.25rem); max-width: 60ch; }
+.hero .cta { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.25rem; }
+
+/* Badge row */
+.badges { margin-top: 2rem; display:flex; gap:1rem; flex-wrap: wrap; opacity:.9; }
+.badge { padding:.5rem .8rem; border:1px solid rgba(255,255,255,.08); border-radius:999px; font-size:.82rem; color:#c9d8ee; background: rgba(255,255,255,.02); }
+
+/* Small tweaks */
+.hero-logo { width: 84px; height: 84px; object-fit: contain; margin-bottom: .8rem; filter: drop-shadow(0 0 22px rgba(0,209,255,.35)); }
+.divider { height:1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); margin: 1.5rem 0; }
+
+@media (min-width: 900px) {
+  .hero .layout { display:grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items:center; }
+}
